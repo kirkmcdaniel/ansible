@@ -1,4 +1,3 @@
-create the group on the servers
 ---
 - name: creating group with loop
   hosts: "{{ host_param }}"
