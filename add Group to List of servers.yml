@@ -1,0 +1,12 @@
+create the group on the servers
+---
+- name: creating group with loop
+  hosts: "{{ host_param }}"
+  become: True
+  gather_facts: yes  
+  tasks:
+   - group:
+      name: "{{ item }}"
+      state: present
+     loop:
+      - devops
