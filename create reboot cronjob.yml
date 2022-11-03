@@ -1,0 +1,23 @@
+---
+- name: Create a cronjob 
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: Set path env variable for cron
+      ansible.builtin.cron:
+        name: PATH
+        env: yes
+        job: /bin/sh:/usr/local/bin
+
+    - name: Create cronjob that runs playbook every 5 minutes
+      ansible.builtin.cron:
+        # don't add a leading "0" to single digit values, and quote all
+        minute: "*"
+        hour: "12*"
+        day: "1"
+        month: "*"
+        weekday: "*"
+        job: "ansible-playbook -vvv /home/ansible/reboot.yml > /home/ansible/update_reboot.out 2>&1"
+        name: "Reboot"
+        state: present
