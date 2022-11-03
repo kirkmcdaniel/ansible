@@ -1,5 +1,4 @@
 ---
----
 - name: Playbook to add new entries in crontab
   hosts: all
   remote_user: ansible
