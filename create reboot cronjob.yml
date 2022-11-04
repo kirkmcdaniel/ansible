@@ -9,12 +9,22 @@
         name: PATH
         env: yes
         job: /var/spool/crom /var/spool/cron/crontabs
-
+    
     - name: Create cron.allow folder
       file
         path: /etc/cron.d/cron.allow
         state: directory
         
+        
+    - name: Check to make sure folder exists
+      stat:
+        path: /etc/cron.d/cron.allow
+      register: file_details
+      
+    - debug:
+        msg: The file cron.allow file exists"
+      when: file_details.stat.exists
+      
 
     - name: Create cronjob that runs playbook every 5 minutes
       ansible.builtin.cron:
