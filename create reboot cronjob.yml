@@ -23,8 +23,8 @@
         msg: The file cron.allow file exists"
       when: file_details.stat.exists
       
-    -name: Test
-     ansible.builtin.cron:
+    - name: Test
+      ansible.builtin.cron:
         name: "check dirs"
         minute: "0"
         hour: "5,2"
