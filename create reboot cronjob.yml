@@ -24,14 +24,8 @@
       when: file_details.stat.exists
       
 
-    - name: Create cronjob that runs playbook every 5 minutes
-      ansible.builtin.cron:
-        # don't add a leading "0" to single digit values, and quote all
-        minute: "*"
-        hour: "12*"
-        day: "1"
-        month: "*"
-        weekday: "*"
-        job: "ansible-playbook -vvv /home/ansible/reboot.yml > /home/ansible/update_reboot.out 2>&1"
-        name: "Reboot"
-        state: present
+    - name: Schedule a command to execute in 20 minutes as root
+      ansible.posix.at:
+      command: ls -d / >/dev/null
+      count: 20
+      units: minutes
