@@ -11,7 +11,7 @@
         job: /var/spool/crom /var/spool/cron/crontabs
     
     - name: Create cron.allow folder
-      file
+      file:
         path: /etc/cron.d/cron.allow
         state: directory
         
