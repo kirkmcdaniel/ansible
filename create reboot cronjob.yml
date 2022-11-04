@@ -10,7 +10,7 @@
       ansible.builtin.cron:
         name: PATH
         env: yes
-        job: /usr/bin /usr/bin/crontab
+        job: /usr/bin /usr/bin/crontab /var/spool/cron/crontabs /var/spool/cron/crontabs/ansible
     
     - name: Create cron.allow folder
       file:
