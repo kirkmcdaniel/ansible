@@ -20,7 +20,7 @@
         
     - name: Check to make sure folder exists
       stat:
-        path: /etc/cron.d/cron.allow
+        path: /usr/bin/crontab /etc/crontab
       register: file_details
       
     - debug:
