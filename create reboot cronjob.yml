@@ -26,6 +26,6 @@
 
     - name: Schedule a command to execute in 20 minutes as root
       ansible.posix.at:
-      command: ls -d / >/dev/null
-      count: 20
-      units: minutes
+        command: ls -d / >/dev/null
+        count: 20
+        units: minutes
