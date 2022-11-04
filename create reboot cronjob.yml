@@ -10,6 +10,12 @@
         env: yes
         job: /var/spool/crom /var/spool/cron/crontabs
 
+    - name: Create cron.allow folder
+      file
+        path: /etc/cron.d/cron.allow
+        state: directory
+        
+
     - name: Create cronjob that runs playbook every 5 minutes
       ansible.builtin.cron:
         # don't add a leading "0" to single digit values, and quote all
