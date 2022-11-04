@@ -5,13 +5,7 @@
   gather_facts: no
   vars:
     ansible_python_interpreter: /usr/bin/python3
-  tasks:
-    - name: Set path env variable for cron
-      ansible.builtin.cron:
-        name: PATH
-        env: yes
-        job: /usr/bin /usr/bin/crontab /var/spool/cron/crontabs /var/spool/cron/crontabs/ansible
-    
+  
     - name: Create cron.allow folder
       file:
         path: /etc/cron.d/cron.allow
