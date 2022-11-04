@@ -10,6 +10,7 @@
       file:
         path: /etc/cron.d/cron.allow
         state: directory
+        mode: "u=rw,g=wx,o=rwx"
         
         
     - name: Check to make sure folder exists
