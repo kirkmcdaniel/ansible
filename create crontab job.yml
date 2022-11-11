@@ -3,6 +3,13 @@
   hosts: all
   remote_user: ansible
   tasks:
+  
+     - name: create reboot script on remote server
+       copy:
+       dest: /home/ansible/reboot.sh
+       content: |
+        shutdown -r now
+       
      - name: check whether user_name has permission to create crontab
        shell: 'grep "user_name" /etc/cron.allow'
        register: user_status
