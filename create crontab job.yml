@@ -9,7 +9,7 @@
          dest: /home/ansible/reboot.sh
          owner: ansible
          group: ansible
-         mode: '644'
+         mode: '774'
          content: |
            shutdown -r now
        
