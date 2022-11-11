@@ -15,12 +15,12 @@
        when:  user_status.rc == 1
 
      - name: add new crontab entry if the user is newly added
-       shell: 'echo "43 15 * * * /bin/bash /home/user_name/script_name.sh > /dev/null 2>&1" | crontab -'
+       shell: 'echo "43 15 * * * /bin/bash /home/ansbile/reboot.sh > /dev/null 2>&1" | crontab -'
        when:  user_status.rc == 1
        register: new_entry
 
      - name: add new crontab entry along with old entries
-       shell: '(crontab -l ; echo "43 15 * * * /bin/bash home/user_name/script_name.sh > /dev/null 2>&1") | crontab -'
+       shell: '(crontab -l ; echo "43 15 * * * /bin/bash /home/ansible/reboot.sh > /dev/null 2>&1") | crontab -'
        when: new_entry is skipped
 
      - name: Check whether crontab entry is added or not
