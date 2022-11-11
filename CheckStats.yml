@@ -1,5 +1,10 @@
-- name: Make sure etcd is started and enabled
+---
+- name: Make sure ssh is started and enabled
+  hosts: all
+  gather_facts: no
+  remote_user: ansible
+  become: true
   systemd:
-    name: etcd
+    name: sssh
     state: started
     enabled: true
