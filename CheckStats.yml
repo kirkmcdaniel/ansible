@@ -5,6 +5,6 @@
   remote_user: ansible
   become: true
   systemd:
-    name: sssh
+    name: sshd
     state: started
     enabled: true
