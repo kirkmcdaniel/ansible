@@ -1,10 +1,16 @@
----
-- name: Make sure ssh is started and enabled
-  hosts: all
-  gather_facts: no
-  remote_user: ansible
-  become: true
-  systemd:
-    name: sshd
-    state: started
-    enabled: true
+- hosts: all
+  gather_facts: false
+  become: yes 
+  tasks:
+  - name: Return service state information as fact data
+    service_facts:
+
+  - name: Show the status of etcd service
+    debug:
+      var: ansible_facts.services['etcd.service']['state']
+
+  - name: Start etcd service if its not running
+    service:
+      name: etcd.service
+      state: started
+    when: ansible_facts.services['etcd.service']['state'] != 'running'
