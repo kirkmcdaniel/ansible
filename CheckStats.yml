@@ -1,0 +1,5 @@
+- name: Make sure etcd is started and enabled
+  systemd:
+    name: etcd
+    state: started
+    enabled: true
