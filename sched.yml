@@ -1,0 +1,8 @@
+- name: Build the same schedule using the rrule plugin
+  hosts:all
+  schedule:
+    name: "{{ sched1 }}"
+    state: present
+    unified_job_template: "Demo sheduled Job Template"
+    rrule: "{{ query('awx.awx.schedule_rrule', 'week', start_date='2023-01-13 10:00:00') }}"
+  register: result
