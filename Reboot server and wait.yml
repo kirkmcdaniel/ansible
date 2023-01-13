@@ -1,11 +1,11 @@
 ---
 - name: Linux Reboot Demo
-  hosts: all
+  hosts: {{ SERVER }}
   gather_facts: no
   remote_user: ansible
   become: true
  
   tasks:
-    - name: Reboot the machine (Wait for 10 second)
+    - name: Reboot the machine (Wait for 60 second)
       reboot:
-        reboot_timeout: 10
+        reboot_timeout: 60
