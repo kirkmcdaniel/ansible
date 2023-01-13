@@ -19,10 +19,10 @@
   gather_facts: no
   become: true
   
-   tasks:
-  -  name: Root FS usage
+   
+-  name: Root FS usage
      shell: df -h {{ item }} |awk ' { print $5 } ' |grep -v Use
      register: dfroot
 
-  -  debug:
+-  debug:
        msg: "System {{ inventory_hostname }}'s root FS utiliation is {{ dfroot.stdout }}"
