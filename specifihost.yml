@@ -21,7 +21,7 @@
   
    
 -  name: Root FS usage
-     shell: df -h {{ item }} |awk ' { print $5 } ' |grep -v Use
+     shell: df -h  |awk ' { print $5 } ' |grep -v Use
      register: dfroot
 
 -  debug:
