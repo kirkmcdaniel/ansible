@@ -1,6 +1,6 @@
 ---
 - name: Linux Reboot Demo
-  hosts: {{ SERVER }}
+  hosts: ALL
   gather_facts: no
   remote_user: ansible
   become: true
