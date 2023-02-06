@@ -2,6 +2,6 @@
   schedule:
     name: "{{ sched1 }}"
     state: present
-    unified_job_template: "Demo Job Template"
+    unified_job_template: "Reboot Server and Wait"
     rrule: "DTSTART:20191219T130551Z RRULE:FREQ=WEEKLY;INTERVAL=1;COUNT=1"
   register: result
